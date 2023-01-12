@@ -11,3 +11,13 @@ body{
     height:100vh;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* .navbar-nav .nav-link.active,.nav-link{
+    color:var(--secondary-color);
+   
+}
+.navbar-nav .nav-link.active, .nav-link.active-link{
+    color:var(--primary-color);
+    text-decoration: underline;
+   
+} */

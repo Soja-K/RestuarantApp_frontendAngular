@@ -1,18 +1,117 @@
+<!-- <div class="container mt-5 mb-5"> -->
 
-<div class="container mt-5 mb-5">
+<!-- <div class="row">
 
+        <div class="col-lg-4" >
+             -->
+<!-- *ngFor="let fd of foodData" -->
+<!-- <div class="foodbox mt-3 mb-3">
+                <img src="{{fd.foodImg}}">
+                <h1>{{fd.foodName}}</h1>
+                <p>{{fd.foodDetails}}</p>
+                <p>{{fd.foodPrice |currency:'INR'}}</p><br>
+                <a class="buybtn" [routerLink]="['/menu',fd.id]">Buy Now&nbsp;<i class="bi bi-bag"></i></a>
+
+            </div> -->
+<!-- </div>
+    </div>
+</div> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-3" routerLink="">Foodzone</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto" >
+          <li class="nav-item">
+            <a class="nav-link " routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="menu" routerLinkActive="active-link">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="about" routerLinkActive="active-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="contact" routerLinkActive="active-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found [visible]="!foods||foods.length<=0" resetLinkText="Reset Search"></app-not-found>
+
+
+<div class="container mt-4 mb-4">
+    <h1 class="text-center">Customers<span class="highlight ps-2"> Favourites Food</span></h1>
     <div class="row">
+        <div class="col-lg-3 mt-3 " *ngFor="let food of foods">
 
-        <div class="col-lg-4" *ngFor="let fd of foodData">
+            <div class="foodbox">
+                <a routerLink="/food/{{food.id}}">
+                    <img src="{{food.imageUrl}}" alt="food images" />
+                    <div class="content">
+                        <div class="name">
+                            {{food.name}}
+                        </div>
+                        <span class="favorite  {{food.favorite?''':'not'}}"></span>
+                        <div class="star">
+                            <ngb-rating [rate]="3"></ngb-rating>
+                        </div>
+                        <div class="product-item-footer">
+                            <div class="origins">
+                                <span *ngFor="let origin of food.origin">
+                                    {{origin}}
+                                </span>
+                            </div>
+                            <div class="cook-time">
+                                <span>🕒</span>
+                                {{food.cookTime}}
+                            </div>
 
-<div class="foodbox mt-3 mb-3">
-<img src="{{fd.foodImg}}">
-<h1>{{fd.foodName}}</h1>
-<p>{{fd.foodDetails}}</p>
-<p>{{fd.foodPrice |currency:'INR'}}</p><br>
-<a class="buybtn"[routerLink]="['/menu',fd.id]">Buy Now&nbsp;<i class="bi bi-bag"></i></a>
+                        </div>
+                        <div class="price">
+                            {{food.price|currency:'INR'}}
+                        </div>
+                    </div>
+                </a>
+                <!-- <h1>{{fd.foodName}}</h1> -->
+                <!-- <p>{{fd.foodPrice | currency:'INR'}}</p> -->
+            </div>
+        </div>
+    </div>
 
-</div>
+
+
+
+
+    <div class=" container-fluid footer mt-5">
+        <div class="row">
+            <!-- name -->
+            <div class="col-lg-6 mt-3 mb-3">
+                <h1>Cloudkitchenweb</h1>
+                <p>GOOD FOOD,GOOD EAT</p>
+            </div>
+            <!-- nav -->
+            <div class="col-lg-4 mt-3 mb-3">
+                <a routerLink="">Home</a>
+                <a routerLink="menu">Menu</a>
+                <a routerLink="about">About</a>
+                <a routerLink="contact">Contact</a>
+            </div>
+            <!-- socialmedia -->
+            <div class="col-lg-2  mt-3 mb-3">
+                <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="#" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
+            </div>
         </div>
     </div>
 </div>
+

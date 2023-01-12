@@ -1,72 +1,241 @@
 import { Injectable } from '@angular/core';
+import { find } from 'rxjs';
+import { Foods } from '../shared/models/food';
+import { Tag } from '../shared/models/Tag';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderDetailsService {
 
+  
+
   constructor() { }
 
-  foodDetails = [
-    {
-      id:1,
-      foodName:"Paneer Grilled Sandwich",
-      foodDetails:"Pan-fried masala paneer.",
-      foodPrice:200,
-      foodImg:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/wzfq7djolqxgdhghebbq"
-    },
-    {
-      id:2,
-      foodName:"Veggie Supreme",
-      foodDetails:"Onion| Green Capsicum|Mushroom |black olives , sweet corn , Red Paprika topped with Cheese",
-      foodPrice:369,
-      foodImg:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/sgbobtbxlojbtdnr2m5k"
-    },
-    {
-      id:3,
-      foodName:"Paneer Burger",
-      foodDetails:"panner",
-      foodPrice:149,
-      foodImg:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/xbeqlsck3p0kei53to7k"
-    },
-    {
-      id:4,
-      foodName:"Veg Masala Roll In Naan",
-      foodDetails:"A homely mix of mashed potato and veggies, seasoned with Indian spices. A filling sure to take you back to mom's kitchen.",
-      foodPrice:140,
-      foodImg:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/l2ng6gtge30sqaafqng7"
-    },
-    {
-      id:5,
-      foodName:"Indulgence Brownie",
-      foodDetails:"(Eggless) Indulge in richly decadent chocolate brownie crafted with love & topped with bitter-sweet chocolate that provides ultra-rich chocolate experience.",
-      foodPrice:105,
-      foodImg:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/iqlmbg1hlyc0dspdyzzv"
-    },
-    {
-      id:6,
-      foodName:"Oreo Cheesecake Ice Cream",
-      foodDetails:"This ice cream may look like plain chocolate, but it's not it's a super concentrated version of cookies 'n' cream. Its rich flavor and color come from crushed Oreo wafers ",
-      foodPrice:219,
-      foodImg:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/wtj8esaeslvlscv8glj6"
-    },
-    {
-      id:7,
-      foodName:"Sandwich",
-      foodDetails:"Sandwich is a food typically consisting of vegetables, sliced cheese or meat, placed on or between slices of bread, or more generally any dish wherein bread serves as a container or wrapper for another food type",
-      foodPrice:100,
-      foodImg:"../../../assets/pictures/sandwich.jpg"
-    },
-    {
-      id:8,
-      foodName:"Pizza",
-      foodDetails:"Pizza consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese, and many other ingredients, baked quickly usually, in a commercial setting, using a wood fired oven heated to a very high temperature and served hot .",
-      foodPrice:150,
-      foodImg:"../../../assets/pictures/pizzas.jpeg"
-    }
-  ]
+  // getFoodById(id: number):Foods {
+  //   return this.getAll().find(food => food.id == id)!;
+  // }
+  // getAllFoodByTag(tag: string): Foods[] {
 
-  
+  //   return tag == "All" ?
+  //     this.getAll() : this.getAll().filter(food => food.tags?.includes(tag));
+
+
+  //   // if(tag=='All')
+  //   // return this.getAll()
+  //   // else
+  //   // return this.getAll().filter(food=>food.tags?.includes(tag));
+  // }
+
+  // getAllTag(): Tag[] {
+  //   return [
+
+  //     { name: 'All', count: 14 },
+  //     { name: 'FastFood', count: 9 },
+
+  //     { name: 'Lunch', count: 4 },
+  //     { name: 'Dinner', count: 2 },
+  //     { name: 'Breakfast', count: 5 },
+  //     { name: 'HomeilyFood', count: 7 },
+
+
+
+
+
+  //   ];
+
+
+  // }
+
+  // getAll(): Foods[] {
+  //   return [
+  //     {
+  //       id: 1,
+  //       name: "Pizza pepperoni",
+  //       price: 110,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['belgium', 'france'],
+  //       star: 3.3,
+  //       imageUrl: '/assets/food-1.jpeg',
+  //       tags: ['FastFood', 'Snacks'],
+  //     },
+  //     {
+  //       id: 2,
+  //       name: "Burger",
+  //       price: 100,
+  //       cookTime: '10-20',
+  //       favorite: true,
+  //       origin: ['India', 'Asia'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-2.jpeg',
+  //       tags: ['FastFood', 'Snacks'],
+  //     },
+  //     {
+  //       id: 3,
+  //       name: "Sandwitch",
+  //       price: 80,
+  //       cookTime: '15-30',
+  //       favorite: false,
+  //       origin: ['belgium', 'france'],
+  //       star: 3.4,
+  //       imageUrl: '/assets/food-3.jpeg',
+  //       tags: ['FastFood', 'Breakfast'],
+  //     },
+  //     {
+  //       id: 4,
+  //       name: "Momos",
+  //       price: 130,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['India', 'Asia'],
+  //       star: 4.3,
+  //       imageUrl: '/assets/food-4.jpeg',
+  //       tags: ['FastFood', 'Snacks'],
+  //     },
+  //     {
+  //       id: 5,
+  //       name: "Shawarma",
+  //       price: 150,
+  //       cookTime: '20-30',
+  //       favorite: false,
+  //       origin: ['India', 'Asia'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-5.jpeg',
+  //       tags: ['FastFood', 'Snacks'],
+  //     },
+  //     {
+  //       id: 6,
+  //       name: "Pasta",
+  //       price: 140,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['America'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-16.jpeg',
+  //       tags: ['FastFood', 'Dinner'],
+  //     },
+  //     {
+  //       id: 7,
+  //       name: "Porotta",
+  //       price: 60,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['India', 'Asia'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-7.jpeg',
+  //       tags: ['FastFood', 'Lunch'],
+  //     },
+  //     {
+  //       id: 8,
+  //       name: "Alfam",
+  //       price: 140,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['Italy'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-8.jpeg',
+  //       tags: ['FastFood', 'Lunch'],
+  //     },
+  //     {
+  //       id: 9,
+  //       name: "Chappathi",
+  //       price: 50,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['Indian'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-9.jpeg',
+  //       tags: ['HomeilyFood', 'Dinner'],
+  //     },
+  //     {
+  //       id: 10,
+  //       name: "Tomato Rice",
+  //       price: 100,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['Indian'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-10.jpeg',
+  //       tags: ['HomeilyFood', 'Lunch'],
+  //     },
+  //     {
+  //       id: 11,
+  //       name: "Ghee Roast",
+  //       price: 80,
+  //       cookTime: '10-20',
+  //       favorite: true,
+  //       origin: ['Indian'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-11.jpeg',
+  //       tags: ['HomeilyFood', 'Breakfast'],
+  //     },
+  //     {
+  //       id: 12,
+  //       name: "Masala Roast",
+  //       price: 70,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['Indian'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-12.jpeg',
+  //       tags: ['HomeilyFood', 'Breakfast'],
+  //     },
+  //     {
+  //       id: 13,
+  //       name: "Idli",
+  //       price: 40,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['Indian'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-13.jpeg',
+  //       tags: ['HomeilyFood', 'Breakfast'],
+  //     },
+  //     {
+  //       id: 14,
+  //       name: "Puttu",
+  //       price: 50,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['Indian'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-14.jpeg',
+  //       tags: ['HomeilyFood', 'Breakfast'],
+  //     },
+  //     {
+  //       id: 15,
+  //       name: "Palappam",
+  //       price: 60,
+  //       cookTime: '20-30',
+  //       favorite: true,
+  //       origin: ['Indian'],
+  //       star: 2.3,
+  //       imageUrl: '/assets/food-15.jpeg',
+  //       tags: ['HomeilyFood', 'Breakfast'],
+  //     },
+  //     {
+  //       id: 16,
+  //       name: "Biryani",
+  //       price: 200,
+  //       cookTime: '20-30',
+  //       favorite: false,
+  //       origin: ['India', 'Asia'],
+  //       star: 4.5,
+  //       imageUrl: '/assets/food-6.jpeg',
+  //       tags: ['FastFood', 'Lunch'],
+
+  //     },
+
+
+  //   ];
+  // }
+
+
+
+
+
 
 
 
