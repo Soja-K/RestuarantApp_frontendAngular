@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
       const result = this.ds.signup(uname, phno, email, pswd)
         .subscribe((result: any) => {
           alert(result.message);
-          this.router.navigateByUrl('login')
+          this.router.navigateByUrl('')
 
         },
           result => {

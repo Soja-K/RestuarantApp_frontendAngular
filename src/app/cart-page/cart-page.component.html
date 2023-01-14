@@ -6,7 +6,9 @@
 
 
 
-
+<div class="text-end mt-3 me-3">
+    <button class="logout-button " (click)="logout()">logout</button>
+</div>
 
 
 <app-not-found [visible]="!cart||cart.items.length <=0"
@@ -48,11 +50,13 @@ resetLinkText="Go to Homepage!" ></app-not-found>
         <div class="food-count">
             {{cart.items.length}}
         </div>
+        
         <!-- <div class="total-price">
             {{cart.totalPrice}}
         </div> -->
-        <a routerLink="/checkout">Proceed to Checkout</a>
+       <!-- <a routerLink="/checkout" (click)="proceed()">Proceed to Checkout</a> -->
+        <!-- <button class="checkout-button" (click)="proceed()">Proceed to Checkout</button> -->
     </div>
 
-
+    
 </div>

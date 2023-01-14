@@ -9,6 +9,7 @@ import { Tag } from './shared/models/Tag';
 export class FoodService {
  
   food:any;
+  currentemail: any;
 
   constructor() { }
   getFoodById(id:number):Foods{

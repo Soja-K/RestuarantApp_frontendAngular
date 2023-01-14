@@ -27,8 +27,10 @@ export class LoginComponent implements OnInit {
       var pswd = this.loginForm.value.pswd;
       const result = this.ds.login(email, pswd)
         .subscribe((result: any) => {
+          localStorage.setItem('currentemail',JSON.stringify(result.currentemail))
+
           alert(result.message)
-          this.router.navigateByUrl('')
+          this.router.navigateByUrl('home')
   
         },
         result=>{

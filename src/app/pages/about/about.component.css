@@ -39,3 +39,22 @@ i{
     color:#000;
     font-size: 30px;
 }
+.navbar-nav .nav-link.active,.nav-link{
+    color:var(--secondary-color);
+   
+}
+.navbar-nav .nav-link.active, .nav-link.active-link{
+    color:var(--primary-color);
+    text-decoration: underline;
+   
+}
+
+.navbar-brand{
+    color:#000;
+    font-size:10px;
+    font-weight: bolder;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+
+
+}
+

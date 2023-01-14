@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FoodService } from '../food.service';
 import { CartService } from '../services/cart.service';
 import { Cart } from '../shared/models/Cart';
@@ -13,16 +14,24 @@ import { Foods } from '../shared/models/food';
 export class CartPageComponent implements OnInit {
 
 cart!:Cart;
-  constructor(private cartService:CartService,private foodService:FoodService ) { 
+  constructor(private cartService:CartService,private foodService:FoodService,private router:Router)  { 
+   
+ 
+
+
 
     let foods=foodService.getAll();
     cartService.addToCart(foods[1]);
     cartService.addToCart(foods[3]);
     cartService.addToCart(foods[5]);
-  this.setCart();
+    this.setCart();
   }
 
   ngOnInit(): void {
+  //   if (!localStorage.getItem('currentemail')) {
+  //   alert('please login first');
+  //    this.router.navigateByUrl('');
+  //  }
   }
   setCart(){
     this.cart=this.cartService.getCart();
@@ -36,6 +45,22 @@ cart!:Cart;
     this.cartService.changeQuantity(cartItem.food.id,quantity);
     this.setCart();
   }
+  logout(){
+   alert('Are you want to Logout');
+    this.router.navigateByUrl('')
+
+    // if (!localStorage.getItem('currentemail')) {
+    //   alert('please login first');
+    //    this.router.navigateByUrl('');
+    // }
+
+    
+    
+  }
+  
+  
+  
+  
   }
 
 

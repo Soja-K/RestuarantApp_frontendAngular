@@ -8,7 +8,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { MenupageComponent } from './pages/menupage/menupage.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +30,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MenuComponent,
     AboutComponent,
     ContactComponent,
-    MenupageComponent,
     SignupComponent,
     LoginComponent,
     SearchComponent,
