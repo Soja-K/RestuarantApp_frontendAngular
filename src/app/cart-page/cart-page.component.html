@@ -9,6 +9,12 @@
 <div class="text-end mt-3 me-3">
     <button class="logout-button " (click)="logout()">logout</button>
 </div>
+<script type="text/javascript">
+    function preback(){window.history.forward();}
+    setTimeout("preback()",0);
+    window.onunload=function(){null};
+
+  </script>
 
 
 <app-not-found [visible]="!cart||cart.items.length <=0"
